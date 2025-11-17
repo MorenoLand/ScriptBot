@@ -1,0 +1,9 @@
+# Exclude everything by default
+*
+*/
+
+# Include api_definitions.json
+!api_definitions.json
+
+# Include .gitignore itself
+!.gitignore
