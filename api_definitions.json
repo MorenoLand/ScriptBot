@@ -549,9 +549,9 @@
       "time"
     ],
     "returns": "void",
-    "description": "sleep(time)",
-    "example": "sleep(1);",
-    "scope": "clientside"
+    "scope": "global",
+    "description": "sleep(float) - Suspends/pauses the current script execution for the specified time duration in seconds. (Will interrupt timeouts)",
+    "example": "function onCreated() {\n   sleep(1); // wait one second\n   chat = \"Hello there\": \n}"
   },
   "move": {
     "name": "move",
@@ -752,9 +752,9 @@
       "str"
     ],
     "returns": "void",
-    "description": "TServerNPC.message(str) | getwordfiltermessage() - returns string - returns the warn message after calling wordFilterText()",
-    "example": "message(\"Welcome to the server!\");",
-    "scope": "clientside"
+    "scope": "global",
+    "description": "TServerNPC.message(str) - Displays a text message over the NPC that is visible to players.",
+    "example": "message(\"Welcome to the server!\");"
   },
   "toall": {
     "name": "toall",
