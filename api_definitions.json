@@ -18082,5 +18082,325 @@
     "scope": "clientside",
     "description": "Applies a full-screen color overlay.",
     "example": "function onPlayerEnters() {\n  if (player.level.name.starts(\"levelname\")) {\n    // clear the overlay\n    seteffect(0, 0, 0, 0);\n  }\n}"
+  },
+  "$camera::movementspeed": {
+    "name": "$camera::movementspeed",
+    "params": [],
+    "returns": "float",
+    "scope": "global",
+    "description": "Camera movement speed setting",
+    "example": "$camera::movementspeed = 1.0;"
+  },
+  "$pref::audio::choosenvoicecodec": {
+    "name": "$pref::audio::choosenvoicecodec",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Selected voice codec for audio communication",
+    "example": "$pref::audio::choosenvoicecodec = 100;"
+  },
+  "$pref::audio::microactivatebyvolume": {
+    "name": "$pref::audio::microactivatebyvolume",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Enable microphone activation by volume threshold",
+    "example": "$pref::audio::microactivatebyvolume = true;"
+  },
+  "$pref::audio::microactivationlevel": {
+    "name": "$pref::audio::microactivationlevel",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Volume level threshold for microphone activation",
+    "example": "$pref::audio::microactivationlevel = 100;"
+  },
+  "$pref::audio::microinputdevice": {
+    "name": "$pref::audio::microinputdevice",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Selected microphone input device index",
+    "example": "$pref::audio::microinputdevice = 100;"
+  },
+  "$pref::audio::microon": {
+    "name": "$pref::audio::microon",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Enable or disable microphone",
+    "example": "$pref::audio::microon = true;"
+  },
+  "$pref::audio::microvolumefactor": {
+    "name": "$pref::audio::microvolumefactor",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Microphone volume amplification factor",
+    "example": "$pref::audio::microvolumefactor = 100;"
+  },
+  "$pref::audio::midivolume": {
+    "name": "$pref::audio::midivolume",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "MIDI music volume level (0-100)",
+    "example": "$pref::audio::midivolume = 100;"
+  },
+  "$pref::audio::mp3volume": {
+    "name": "$pref::audio::mp3volume",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "MP3 music volume level (0-100)",
+    "example": "$pref::audio::mp3volume = 100;"
+  },
+  "$pref::audio::radiovolume": {
+    "name": "$pref::audio::radiovolume",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Radio/streaming audio volume level (0-100)",
+    "example": "$pref::audio::radiovolume = 100;"
+  },
+  "$pref::audio::reversestereo": {
+    "name": "$pref::audio::reversestereo",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Reverse left and right audio channels",
+    "example": "$pref::audio::reversestereo = true;"
+  },
+  "$pref::audio::sfxvolume": {
+    "name": "$pref::audio::sfxvolume",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Sound effects volume level (0-100)",
+    "example": "$pref::audio::sfxvolume = 100;"
+  },
+  "$pref::audio::voicevolume": {
+    "name": "$pref::audio::voicevolume",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Voice chat volume level (0-100)",
+    "example": "$pref::audio::voicevolume = 100;"
+  },
+  "$pref::graal::allowglobalpms": {
+    "name": "$pref::graal::allowglobalpms",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Allow receiving private messages from non-buddies",
+    "example": "$pref::graal::allowglobalpms = true;"
+  },
+  "$pref::graal::automapping": {
+    "name": "$pref::graal::automapping",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Enable automatic minimap generation",
+    "example": "$pref::graal::automapping = true;"
+  },
+  "$pref::graal::defaultfontsize": {
+    "name": "$pref::graal::defaultfontsize",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Default font size for showtext (affects zoom: size/24)",
+    "example": "$pref::graal::defaultfontsize = 100;"
+  },
+  "$pref::graal::dontconnectlevels": {
+    "name": "$pref::graal::dontconnectlevels",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Disable automatic level connection/loading",
+    "example": "$pref::graal::dontconnectlevels = true;"
+  },
+  "$pref::graal::dontloadlistheads": {
+    "name": "$pref::graal::dontloadlistheads",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Don't load player head images in lists",
+    "example": "$pref::graal::dontloadlistheads = true;"
+  },
+  "$pref::graal::dontsavepasswords": {
+    "name": "$pref::graal::dontsavepasswords",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Don't save login passwords",
+    "example": "$pref::graal::dontsavepasswords = true;"
+  },
+  "$pref::graal::dontsavepms": {
+    "name": "$pref::graal::dontsavepms",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Don't save private message history",
+    "example": "$pref::graal::dontsavepms = true;"
+  },
+  "$pref::graal::fixedport": {
+    "name": "$pref::graal::fixedport",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Use fixed UDP port for connections",
+    "example": "$pref::graal::fixedport = true;"
+  },
+  "$pref::graal::fixedudpport": {
+    "name": "$pref::graal::fixedudpport",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Fixed UDP port number when fixedport is enabled",
+    "example": "$pref::graal::fixedudpport = 100;"
+  },
+  "$pref::graal::language": {
+    "name": "$pref::graal::language",
+    "params": [],
+    "returns": "string",
+    "scope": "global",
+    "description": "Selected language/locale code",
+    "example": "$pref::graal::language = \"value\";"
+  },
+  "$pref::graal::limitnicknames": {
+    "name": "$pref::graal::limitnicknames",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Enable nickname length limiting",
+    "example": "$pref::graal::limitnicknames = true;"
+  },
+  "$pref::graal::loadbuddylistfromserver": {
+    "name": "$pref::graal::loadbuddylistfromserver",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Load buddy list from server instead of local storage",
+    "example": "$pref::graal::loadbuddylistfromserver = true;"
+  },
+  "$pref::graal::nicknamelimit": {
+    "name": "$pref::graal::nicknamelimit",
+    "params": [],
+    "returns": "integer",
+    "scope": "global",
+    "description": "Maximum nickname length when limitnicknames is enabled",
+    "example": "$pref::graal::nicknamelimit = 100;"
+  },
+  "$pref::graal::nomassmessages": {
+    "name": "$pref::graal::nomassmessages",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Block mass messages from other players",
+    "example": "$pref::graal::nomassmessages = true;"
+  },
+  "$pref::graal::notoalls": {
+    "name": "$pref::graal::notoalls",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Block 'toall' broadcast messages",
+    "example": "$pref::graal::notoalls = true;"
+  },
+  "$pref::graal::noudp": {
+    "name": "$pref::graal::noudp",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Disable UDP connections, use TCP only",
+    "example": "$pref::graal::noudp = true;"
+  },
+  "$pref::graal::showyourselfonbuddylists": {
+    "name": "$pref::graal::showyourselfonbuddylists",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Show yourself on other players' buddy lists",
+    "example": "$pref::graal::showyourselfonbuddylists = true;"
+  },
+  "$pref::input::mousesensitivity": {
+    "name": "$pref::input::mousesensitivity",
+    "params": [],
+    "returns": "float",
+    "scope": "global",
+    "description": "Mouse sensitivity multiplier",
+    "example": "$pref::input::mousesensitivity = 1.0;"
+  },
+  "$pref::interior::lockarrays": {
+    "name": "$pref::interior::lockarrays",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Lock vertex arrays for interior rendering optimization",
+    "example": "$pref::interior::lockarrays = true;"
+  },
+  "$pref::terrain::enabledetails": {
+    "name": "$pref::terrain::enabledetails",
+    "params": [],
+    "returns": "boolean",
+    "scope": "global",
+    "description": "Enable detailed terrain rendering",
+    "example": "$pref::terrain::enabledetails = true;"
+  },
+  "$pref::video::detailfactor": {
+    "name": "$pref::video::detailfactor",
+    "params": [],
+    "returns": "float",
+    "scope": "global",
+    "description": "Level of detail factor for rendering (higher = more detail)",
+    "example": "$pref::video::detailfactor = 1.0;"
+  },
+  "$pref::video::fogdistance": {
+    "name": "$pref::video::fogdistance",
+    "params": [],
+    "returns": "float",
+    "scope": "global",
+    "description": "Distance at which fog starts rendering",
+    "example": "$pref::video::fogdistance = 1.0;"
+  },
+  "$pref::video::fullscreenmode": {
+    "name": "$pref::video::fullscreenmode",
+    "params": [],
+    "returns": "string",
+    "scope": "global",
+    "description": "Fullscreen resolution mode (e.g., '1920x1080')",
+    "example": "$pref::video::fullscreenmode = \"value\";"
+  },
+  "$pref::video::screenshotformat": {
+    "name": "$pref::video::screenshotformat",
+    "params": [],
+    "returns": "string",
+    "scope": "global",
+    "description": "Screenshot file format (PNG, JPG, etc.)",
+    "example": "$pref::video::screenshotformat = \"value\";"
+  },
+  "$pref::video::visibledistance": {
+    "name": "$pref::video::visibledistance",
+    "params": [],
+    "returns": "float",
+    "scope": "global",
+    "description": "Maximum visible rendering distance",
+    "example": "$pref::video::visibledistance = 1.0;"
+  },
+  "$pref::video::windowmode": {
+    "name": "$pref::video::windowmode",
+    "params": [],
+    "returns": "string",
+    "scope": "global",
+    "description": "Window mode setting (windowed, fullscreen, borderless)",
+    "example": "$pref::video::windowmode = \"value\";"
+  },
+  "$scenelighting::lightingprogress": {
+    "name": "$scenelighting::lightingprogress",
+    "params": [],
+    "returns": "float",
+    "scope": "global",
+    "description": "Scene lighting calculation progress (0.0-1.0, read-only) (read-only)",
+    "example": "$scenelighting::lightingprogress = 1.0;"
   }
 }
