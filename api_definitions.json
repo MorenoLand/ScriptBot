@@ -36,16 +36,16 @@
   "changeimgcolors": {
     "name": "changeimgcolors",
     "params": [
-      "int",
-      "float",
-      "float",
-      "float",
-      "float"
+      "index",
+      "red",
+      "green",
+      "blue",
+      "alpha"
     ],
     "returns": "void",
-    "description": "TServerNPC.changeimgcolors(int, float, float, float, float)",
-    "example": "changeimgcolors(1, 1, 0.5, 0.5, 0.8);",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Tints a TShowImg object (created by showimg, findimg, etc.) with a specific color and sets its transparency.",
+    "example": "changeimgcolors(1, 1, 0.5, 0.5, 0.8);"
   },
   "changeimgzoom": {
     "name": "changeimgzoom",
@@ -4336,9 +4336,9 @@
       "bool"
     ],
     "returns": "void",
-    "description": "GuiControl.makefirstresponder(bool)",
-    "example": "makefirstresponder(param1);",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Makes the control the first responder for key input.",
+    "example": "GraalControl.makefirstresponder(bool);\n//bring focus to main game window\n\nGuiControl.makefirstresponder(bool);\n//give focus to a specific GUI control"
   },
   "makescreenshot2": {
     "name": "makescreenshot2",
@@ -6024,30 +6024,30 @@
   "Adventure_setScriptedDownloadSystem": {
     "name": "Adventure_setScriptedDownloadSystem",
     "params": [
-      "x"
+      "bool"
     ],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_setScriptedDownloadSystem(true);",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Enables or disables the scripted download system.",
+    "example": "Adventure_setScriptedDownloadSystem(true);"
   },
   "Adventure_setFrameTick": {
     "name": "Adventure_setFrameTick",
     "params": [
-      "milliseconds"
+      "float"
     ],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_setFrameTick(50);",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Sets the current frame tick value for the client. The value is measured in milliseconds.",
+    "example": "Adventure_setFrameTick(50);"
   },
   "Adventure_quit": {
     "name": "Adventure_quit",
     "params": [],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_quit();",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Shuts down the Graal Client immediately",
+    "example": "Adventure_quit();"
   },
   "Adventure_getSystemID": {
     "name": "Adventure_getSystemID",
@@ -6065,9 +6065,9 @@
       "index"
     ],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_setAccountName(\"myaccount\");",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Sets the account name to the specified string.",
+    "example": "Adventure_setAccountName(\"myaccount\");"
   },
   "Adventure_setPassword": {
     "name": "Adventure_setPassword",
@@ -6082,12 +6082,12 @@
   "Adventure_setChat": {
     "name": "Adventure_setChat",
     "params": [
-      "x"
+      "str"
     ],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_setChat(\"Hello world!\");",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Sets the public overhead chat to the specified string.",
+    "example": "Adventure_setChat(\"Hello world!\");"
   },
   "Adventure_setNickName": {
     "name": "Adventure_setNickName",
@@ -6101,11 +6101,14 @@
   },
   "Adventure_setTextEditText": {
     "name": "Adventure_setTextEditText",
-    "params": [],
+    "params": [
+      "obj",
+      "str"
+    ],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_setTextEditText();",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Sets the text of a GuiTextEdit control.",
+    "example": "Adventure_setTextEditText(Test_TextEditCtrl, \"Testing\");"
   },
   "Adventure_setRemoveVars": {
     "name": "Adventure_setRemoveVars",
@@ -6141,11 +6144,13 @@
   },
   "Adventure_setFullscreen": {
     "name": "Adventure_setFullscreen",
-    "params": [],
+    "params": [
+      "bool"
+    ],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_setFullscreen();",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Enables/disables full-screen mode. DEPRECATED.",
+    "example": "Adventure_setFullscreen(1);"
   },
   "Adventure_setControlBinding": {
     "name": "Adventure_setControlBinding",
@@ -6157,11 +6162,13 @@
   },
   "Adventure_setAllowRecordByScript": {
     "name": "Adventure_setAllowRecordByScript",
-    "params": [],
+    "params": [
+      "bool"
+    ],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_setAllowRecordByScript();",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Enables/disables recording via startrecordvideo(). Would be considered deprecated.",
+    "example": "Adventure_setAllowRecordByScript(1);"
   },
   "Adventure_setAllowedSocketsConnect": {
     "name": "Adventure_setAllowedSocketsConnect",
@@ -6343,9 +6350,9 @@
     "name": "Adventure_openServerList",
     "params": [],
     "returns": "void",
-    "description": "No matching script function found!",
-    "example": "Adventure_openServerList();",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "This is a player world specific function. As name implies, it opens the Serverlist and is only available on the Login-Server.",
+    "example": "Adventure_openServerList();"
   },
   "Adventure_selectPath": {
     "name": "Adventure_selectPath",
@@ -6353,9 +6360,9 @@
       "title"
     ],
     "returns": "object",
-    "description": "No matching script function found!",
-    "example": "temp.selected = Adventure_selectPath(\"Select file\");",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Opens the file-browser",
+    "example": "temp.selected = Adventure_selectPath(\"Select file\");"
   },
   "Adventure_updateMidiVolume": {
     "name": "Adventure_updateMidiVolume",
@@ -18025,5 +18032,69 @@
     "returns": "object",
     "description": "Property of type object",
     "scope": "serverside"
+  },
+  "Adventure_addFileToIgnore": {
+    "name": "Adventure_addFileToIgnore",
+    "params": [
+      "str"
+    ],
+    "returns": "void",
+    "scope": "clientside",
+    "description": "adds the file specified to an ignore list",
+    "example": "Adventure_addFileToIgnore(\"block.png\");"
+  },
+  "Adventure_requestUpdateModTime": {
+    "name": "Adventure_requestUpdateModTime",
+    "params": [
+      "str"
+    ],
+    "returns": "void",
+    "scope": "clientside",
+    "description": "Requests the last modification timestamp of the file from the server",
+    "example": "Adventure_requestUpdateModTime(\"block.png\");"
+  },
+  "Adventure_requestDownload": {
+    "name": "Adventure_requestDownload",
+    "params": [
+      "str"
+    ],
+    "returns": "void",
+    "scope": "clientside",
+    "description": "Requests file download from server (Used by IRC File Browser)",
+    "example": "Adventure_requestDownload(\"block.png\");"
+  },
+  "Adventure_requestUpdateCRC": {
+    "name": "Adventure_requestUpdateCRC",
+    "params": [
+      "str"
+    ],
+    "returns": "void",
+    "scope": "clientside",
+    "description": "Requests the CRC (checksum/hash) of the file from the server",
+    "example": "Adventure_requestUpdateCRC(\"block.png\");"
+  },
+  "Adventure_invokeMouseEvent": {
+    "name": "Adventure_invokeMouseEvent",
+    "params": [
+      "int",
+      "int",
+      "int",
+      "int",
+      "double",
+      "double",
+      "int"
+    ],
+    "returns": "void",
+    "scope": "clientside",
+    "description": "Invokes a mouse event, not necessarily needed.",
+    "example": ""
+  },
+  "Adventure_getFrameTick": {
+    "name": "Adventure_getFrameTick",
+    "params": [],
+    "returns": "int",
+    "scope": "clientside",
+    "description": "Returns the current frame tick for the client",
+    "example": "temp.tick = Adventure_getFrameTick();"
   }
 }
