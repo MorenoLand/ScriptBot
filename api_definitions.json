@@ -2,15 +2,15 @@
   "showimg": {
     "name": "showimg",
     "params": [
-      "int",
-      "str",
-      "float",
-      "float"
+      "index",
+      "imageFile",
+      "x",
+      "y"
     ],
     "returns": "void",
-    "description": "TServerNPC.showimg(int, str, float, float) - returns object",
-    "example": "showimg(1, \"block.png\", player.x, player.y);",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Creates a new, independent visual element. The 'index' is critical: indices >= 200 are private to the local client, while indices < 200 are public and visible to all nearby players.\n\nreturns object",
+    "example": "showimg(1, \"block.png\", player.x, player.y);"
   },
   "findimg": {
     "name": "findimg",
@@ -194,26 +194,26 @@
   "setimg": {
     "name": "setimg",
     "params": [
-      "str"
+      "imageFile"
     ],
     "returns": "void",
-    "description": "TServerNPC.setimg(str)",
-    "example": "setimg(\"player.png\");",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Sets the NPC's main graphic to display a full image file.",
+    "example": "setimg(\"block.png\");"
   },
   "setimgpart": {
     "name": "setimgpart",
     "params": [
-      "str",
-      "int",
-      "int",
-      "int",
-      "int"
+      "imageFile",
+      "startX",
+      "startY",
+      "width",
+      "height"
     ],
     "returns": "void",
-    "description": "TServerNPC.setimgpart(str, int, int, int, int)",
-    "example": "setimgpart(\"tiles.png\", 0, 0, 16, 16);",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Sets the NPC's main graphic to a specific rectangular portion of a larger image file.",
+    "example": "setimgpart(\"block.png\", 0, 0, 16, 16);"
   },
   "attachplayertoobj": {
     "name": "attachplayertoobj",
@@ -383,12 +383,14 @@
   "setlevel2": {
     "name": "setlevel2",
     "params": [
-      "levelname"
+      "levelname",
+      "x",
+      "y"
     ],
     "returns": "void",
-    "description": "setlevel2(str, float, float)",
-    "example": "setlevel2(\"test_level.nw\", 30, 30);",
-    "scope": "clientside"
+    "scope": "serverside",
+    "description": "Warps the player to a new level and coordinates.",
+    "example": "function onPlayerTouchsMe() {\n    player.setlevel2(\"level.nw\", 32.5, 32);\n}"
   },
   "serverwarp": {
     "name": "serverwarp",
@@ -739,10 +741,10 @@
     "params": [
       "message"
     ],
-    "returns": "void",
-    "description": "TServerNPC.chat - string",
-    "example": "chat(\"Hello everyone!\");",
-    "scope": "clientside"
+    "returns": "string",
+    "scope": "global",
+    "description": "TPlayer.chat - string\nTServerNPC.chat - string",
+    "example": "chat = \"Hello everyone!\"; // Would set an NPC's chat.\nplayer.chat = \"Hello world\"; // Would set the player chat."
   },
   "message": {
     "name": "message",
@@ -939,19 +941,6 @@
     "returns": "string",
     "description": "No matching script function found!",
     "example": "temp.error = dbLastError();",
-    "scope": "clientside"
-  },
-  "setEffect": {
-    "name": "setEffect",
-    "params": [
-      "float",
-      "float",
-      "float",
-      "float"
-    ],
-    "returns": "void",
-    "description": "seteffect(float, float, float, float)",
-    "example": "setEffect(1, 0, 0, 0.3); // Red tint",
     "scope": "clientside"
   },
   "pushDialog": {
@@ -5487,19 +5476,6 @@
     "example": "setcursorcolumnandline(param1, param2);",
     "scope": "clientside"
   },
-  "seteffect": {
-    "name": "seteffect",
-    "params": [
-      "float",
-      "float",
-      "float",
-      "float"
-    ],
-    "returns": "void",
-    "description": "seteffect(float, float, float, float)",
-    "example": "seteffect(param1, param2, param3, param4);",
-    "scope": "clientside"
-  },
   "seteffectmode": {
     "name": "seteffectmode",
     "params": [
@@ -6191,15 +6167,15 @@
   "Adventure_getFolder": {
     "name": "Adventure_getFolder",
     "params": [
-      "param0",
-      "y",
-      "z",
-      "text"
+      "str",
+      "str",
+      "bool",
+      "bool"
     ],
     "returns": "array",
-    "description": "No matching script function found!",
-    "example": "temp.files = Adventure_getFolder(\"levels/\", \"*.nw\", true, true);",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Path, wildcard, include files (bool), include directories/recursive (bool) - returns object list",
+    "example": "temp.files = Adventure_getFolder(\"levels/\", \"*.nw\", true, true);"
   },
   "Adventure_getBuildTime": {
     "name": "Adventure_getBuildTime",
@@ -14656,14 +14632,11 @@
   },
   "platform": {
     "name": "platform",
-    "params": [
-      "amazon",
-      "googleplay"
-    ],
-    "returns": "void",
-    "description": "getgamesubversion() - returns string - distribution platform (amazon, googleplay etc.) | getplatform() - returns string",
-    "example": "platform()",
-    "scope": "clientside"
+    "params": [],
+    "returns": "string",
+    "scope": "global",
+    "description": "TServerPlayer.platform - string (read only)",
+    "example": "if (player.platform in {\"mac\",\"linux\",\"win\"}) player.chat = \"I'm on a PC.\";\nelse player.chat = \"I'm not on a PC.\";\n\n// flash, android, win, mac, linux, iphone"
   },
   "playerlisticon": {
     "name": "playerlisticon",
@@ -18096,5 +18069,18 @@
     "scope": "clientside",
     "description": "Returns the current frame tick for the client",
     "example": "temp.tick = Adventure_getFrameTick();"
+  },
+  "seteffect": {
+    "name": "seteffect",
+    "params": [
+      "red",
+      "green",
+      "blue",
+      "alpha"
+    ],
+    "returns": "void",
+    "scope": "clientside",
+    "description": "Applies a full-screen color overlay.",
+    "example": "function onPlayerEnters() {\n  if (player.level.name.starts(\"levelname\")) {\n    // clear the overlay\n    seteffect(0, 0, 0, 0);\n  }\n}"
   }
 }
