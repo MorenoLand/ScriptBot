@@ -6031,9 +6031,9 @@
       "index"
     ],
     "returns": "string",
-    "description": "No matching script function found!",
-    "example": "temp.sysid = Adventure_getSystemID(0);",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "System ID type (int) - returns string",
+    "example": "temp.sysid = Adventure_getSystemID(0);"
   },
   "Adventure_setAccountName": {
     "name": "Adventure_setAccountName",
@@ -6169,12 +6169,12 @@
   "Adventure_getFileContent": {
     "name": "Adventure_getFileContent",
     "params": [
-      "path"
+      "str"
     ],
-    "returns": "string",
-    "description": "No matching script function found!",
-    "example": "temp.content = Adventure_getFileContent(\"config.txt\");",
-    "scope": "clientside"
+    "returns": "str",
+    "scope": "clientside",
+    "description": "Reads file content from path - returns string",
+    "example": "temp.content = Adventure_getFileContent(\"scriptfiles/foo.txt\");"
   },
   "Adventure_getFolder": {
     "name": "Adventure_getFolder",
@@ -6193,9 +6193,9 @@
     "name": "Adventure_getBuildTime",
     "params": [],
     "returns": "string",
-    "description": "No matching script function found!",
-    "example": "temp.build = Adventure_getBuildTime();",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Build time of current client - returns string",
+    "example": "temp.build = Adventure_getBuildTime();"
   },
   "Adventure_getIPhoneID": {
     "name": "Adventure_getIPhoneID",
@@ -6235,19 +6235,19 @@
     "name": "Adventure_getWindowList",
     "params": [],
     "returns": "array",
-    "description": "No matching script function found!",
-    "example": "temp.windows = Adventure_getWindowList();",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "Returns a list of open window tabs - returns array",
+    "example": "temp.windows = Adventure_getWindowList();"
   },
   "Adventure_getApplicationFolder": {
     "name": "Adventure_getApplicationFolder",
     "params": [
-      "x"
+      "int"
     ],
-    "returns": "string",
-    "description": "No matching script function found!",
-    "example": "temp.appdir = Adventure_getApplicationFolder(true);",
-    "scope": "clientside"
+    "returns": "str",
+    "scope": "clientside",
+    "description": "Full path to Graal install (bool represented as int) - returns string.",
+    "example": "temp.appdir = Adventure_getApplicationFolder(true);"
   },
   "Adventure_getOSID": {
     "name": "Adventure_getOSID",
