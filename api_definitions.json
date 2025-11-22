@@ -263,12 +263,12 @@
   "setplayerdir": {
     "name": "setplayerdir",
     "params": [
-      "str"
+      "direction"
     ],
     "returns": "void",
-    "description": "setplayerdir(str)",
-    "example": "setplayerdir(2);",
-    "scope": "clientside"
+    "scope": "global",
+    "description": "setplayerdir(str) - Sets the direction the player is facing. (0 up, 1 left, 2 down, 3 right)",
+    "example": "setplayerdir(2); // sets player direction to up"
   },
   "setplayerprop": {
     "name": "setplayerprop",
@@ -350,9 +350,9 @@
       "int"
     ],
     "returns": "void",
-    "description": "TServerNPC.hurt(int)",
-    "example": "hurt(1);",
-    "scope": "clientside"
+    "scope": "global",
+    "description": "TServerNPC.hurt(int) - Deals damage to the NPC, reducing its health by the specified amount.",
+    "example": "hurt(1); // deals 1 damage to the NPC"
   },
   "hitplayer": {
     "name": "hitplayer",
@@ -398,9 +398,9 @@
       "str"
     ],
     "returns": "void",
-    "description": "serverwarp(str)",
-    "example": "serverwarp(\"Era\");",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "serverwarp(str) - Warps the player to another server by server name.",
+    "example": "serverwarp(\"graal2001\");"
   },
   "seturllevel": {
     "name": "seturllevel",
@@ -472,9 +472,9 @@
       "str"
     ],
     "returns": "void",
-    "description": "TServerNPC.take(str)",
-    "example": "take(\"heart\");",
-    "scope": "clientside"
+    "scope": "global",
+    "description": "TServerNPC.take(str) - Takes/collects an item from the ground if it's available in front of the NPC's location.",
+    "example": "take(\"heart\");  // attempts to take a heart\ntake(\"gralat\"); // attempts to take a gralat"
   },
   "take2": {
     "name": "take2",
@@ -709,10 +709,10 @@
     "params": [
       "array"
     ],
-    "returns": "number",
-    "description": "arraylen(array)",
-    "example": "temp.size = arraylen(temp.myarray);",
-    "scope": "clientside"
+    "returns": "integer",
+    "scope": "global",
+    "description": "arraylen(array) - Returns the number of elements in an array.",
+    "example": "temp._array = {\"ore\", \"boat\", \"water\"};\necho(arraylen(_array)); // Result: 3"
   },
   "arrayadd": {
     "name": "arrayadd",
@@ -738,9 +738,7 @@
   },
   "chat": {
     "name": "chat",
-    "params": [
-      "message"
-    ],
+    "params": [],
     "returns": "string",
     "scope": "global",
     "description": "TPlayer.chat - string\nTServerNPC.chat - string",
@@ -1696,7 +1694,7 @@
     ],
     "returns": "void",
     "scope": "serverside",
-    "description": "addweapon(str)",
+    "description": "addweapon(str) - Adds a weapon script to a player's weapon list.",
     "example": "findplayer(\"dabblercody\").addweapon(this.name); //Current Weapon \nfindplayer(\"dabblercody\").addweapon(\"Staff/Boots\");"
   },
   "callweapon": {
@@ -1766,10 +1764,10 @@
     "params": [
       "float"
     ],
-    "returns": "void",
-    "description": "arctan(float)",
-    "example": "arctan(param1);",
-    "scope": "clientside"
+    "returns": "float",
+    "scope": "global",
+    "description": "arctan(float) - Returns the arctangent (inverse tangent) of a value, giving the angle in radians whose tangent is the input value.",
+    "example": "temp.angle = arctan(1.0); // Returns \u03c0/4 radians (45 degrees) in float value (0.785...)"
   },
   "ceil": {
     "name": "ceil",
@@ -2056,13 +2054,13 @@
   "addstring": {
     "name": "addstring",
     "params": [
-      "varname",
+      "array",
       "string"
     ],
-    "returns": "void",
-    "description": "addstring(varname,string)",
-    "example": "addstring(param1, param2);",
-    "scope": "clientside"
+    "returns": "array",
+    "scope": "global",
+    "description": "addstring varname,string - Adds a string value to a string array variable. (deprecated with gs2 array.add)",
+    "example": "temp._array = {\"ore\", \"boat\", \"water\"};\naddstring temp._array, \"shore\";\necho(_array); // result: ore,boat,water,\"\"\"shore\"\"\""
   },
   "base64decode": {
     "name": "base64decode",
@@ -6477,14 +6475,14 @@
   "addguildmember": {
     "name": "addguildmember",
     "params": [
-      "str",
-      "str",
-      "str"
+      "guild",
+      "account",
+      "nick"
     ],
     "returns": "void",
-    "description": "addguildmember(str, str, str)",
-    "example": "addguildmember(player.account, player.nick);",
-    "scope": "clientside"
+    "scope": "serverside",
+    "description": "addguildmember(str, str, str) - Adds a player to a guild",
+    "example": "function onPlayerTouchsMe() { // Touch the NPC to join the guild \"Knights\"\n  addguildmember(\"Knights\", player.account, player.nick);\n}"
   },
   "addmaterialmapping": {
     "name": "addmaterialmapping",
@@ -10082,12 +10080,13 @@
   "adddnsentry": {
     "name": "adddnsentry",
     "params": [
-      "str",
-      "str"
+      "hostname",
+      "ip"
     ],
     "returns": "void",
-    "description": "adddnsentry(str, str)",
-    "scope": "clientside"
+    "scope": "clientside",
+    "description": "adddnsentry(str, str) - Adds a custom DNS entry to the client's DNS cache, mapping a hostname to an IP address.",
+    "example": "adddnsentry(\"example.com\", \"192.168.1.1\");"
   },
   "clearemptyglobalvars": {
     "name": "clearemptyglobalvars",
